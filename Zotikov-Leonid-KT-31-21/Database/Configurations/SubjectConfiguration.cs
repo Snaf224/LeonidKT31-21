@@ -33,14 +33,20 @@ namespace Zotikov_Leonid_KT_31_21.Database.Configurations
                 .HasComment("Название предмета");
 
 
-            ////связь со студентами
-            //builder.HasOne(p => p.Student)
-            //.WithMany(p => p.Subjects)
-            //.HasForeignKey(p => p.StudentId)
-            //.HasConstraintName("fk_f_student_id")
-            //.OnDelete(DeleteBehavior.Cascade);
+            //связь со студентами
+            builder.ToTable(TableName)
+            .HasOne(p => p.Student)
+            .WithMany()
+            .HasForeignKey(p => p.StudentId)
+            .HasConstraintName("fk_f_student_id")
+            .OnDelete(DeleteBehavior.Cascade);
 
+            builder.ToTable(TableName)
+                .HasIndex(p => p.StudentId, $"idx_{TableName}_fk_f_group_id");
 
+            //Добавим явную автоподгрузку связанной сущности
+            builder.Navigation(p => p.Student)
+                .AutoInclude();
 
             builder.ToTable(TableName);
         }

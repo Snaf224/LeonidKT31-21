@@ -11,7 +11,7 @@ using Zotikov_Leonid_KT_31_21.Database;
 namespace Zotikov_Leonid_KT_31_21.Migrations
 {
     [DbContext(typeof(StudentDbContext))]
-    [Migration("20241016201417_CreateDatabase")]
+    [Migration("20241016203701_CreateDatabase")]
     partial class CreateDatabase
     {
         /// <inheritdoc />

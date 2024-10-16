@@ -1,7 +1,7 @@
 ﻿using Zotikov_Leonid_KT_31_21.Database.Configurations;
 using Zotikov_Leonid_KT_31_21.Models;
 using Microsoft.EntityFrameworkCore;
-using IvanIvanovKt_31_20.Database.Configurations;
+
 
 
 namespace Zotikov_Leonid_KT_31_21.Database

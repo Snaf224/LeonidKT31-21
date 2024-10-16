@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 
-namespace IvanIvanovKt_31_20.Database.Configurations
+namespace Zotikov_Leonid_KT_31_21.Database.Configurations
 {
     public class GroupConfiguration : IEntityTypeConfiguration<Group>
     {
@@ -32,6 +32,7 @@ namespace IvanIvanovKt_31_20.Database.Configurations
                 .HasColumnName("c_group_name")
                 .HasColumnType(ColumnType.String).HasMaxLength(100)
                 .HasComment("Название группы");
+
 
             builder.ToTable(TableName);
         }

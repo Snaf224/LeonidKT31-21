@@ -39,6 +39,13 @@ namespace Zotikov_Leonid_KT_31_21.Database.Configurations
                 .HasColumnType(ColumnType.Int).HasMaxLength(100)
                 .HasComment("Баллы");
 
+            //связь со студентами
+            builder.ToTable(TableName)
+            .HasOne(p => p.Student)
+            .WithMany()
+            .HasForeignKey(p => p.StudentId)
+            .HasConstraintName("fk_f_student_id")
+            .OnDelete(DeleteBehavior.Cascade);
 
             builder.ToTable(TableName);
 
