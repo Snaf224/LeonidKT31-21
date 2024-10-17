@@ -11,7 +11,7 @@ using Zotikov_Leonid_KT_31_21.Database;
 namespace Zotikov_Leonid_KT_31_21.Migrations
 {
     [DbContext(typeof(StudentDbContext))]
-    [Migration("20241016203701_CreateDatabase")]
+    [Migration("20241017073354_CreateDatabase")]
     partial class CreateDatabase
     {
         /// <inheritdoc />
@@ -53,7 +53,7 @@ namespace Zotikov_Leonid_KT_31_21.Migrations
                     b.HasKey("GradeId")
                         .HasName("pk_cd_grade_grade_id");
 
-                    b.HasIndex("StudentId");
+                    b.HasIndex(new[] { "StudentId" }, "idx_cd_grade_fk_f_group_id");
 
                     b.ToTable("cd_grade", (string)null);
                 });
@@ -148,7 +148,7 @@ namespace Zotikov_Leonid_KT_31_21.Migrations
                     b.HasKey("SubjectId")
                         .HasName("pk_cd_subject_subject_id");
 
-                    b.HasIndex("StudentId");
+                    b.HasIndex(new[] { "StudentId" }, "idx_cd_subject_fk_f_group_id");
 
                     b.ToTable("cd_subject", (string)null);
                 });
@@ -201,7 +201,8 @@ namespace Zotikov_Leonid_KT_31_21.Migrations
                         .WithMany()
                         .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_f_student_id");
 
                     b.Navigation("Student");
                 });
@@ -224,7 +225,8 @@ namespace Zotikov_Leonid_KT_31_21.Migrations
                         .WithMany()
                         .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .IsRequired()
+                        .HasConstraintName("fk_f_student_id");
 
                     b.Navigation("Student");
                 });

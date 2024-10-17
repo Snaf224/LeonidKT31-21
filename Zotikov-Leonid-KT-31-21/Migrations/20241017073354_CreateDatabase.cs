@@ -60,7 +60,7 @@ namespace Zotikov_Leonid_KT_31_21.Migrations
                 {
                     table.PrimaryKey("pk_cd_grade_grade_id", x => x.grade_id);
                     table.ForeignKey(
-                        name: "FK_cd_grade_cd_student_StudentId",
+                        name: "fk_f_student_id",
                         column: x => x.StudentId,
                         principalTable: "cd_student",
                         principalColumn: "student_id",
@@ -80,7 +80,7 @@ namespace Zotikov_Leonid_KT_31_21.Migrations
                 {
                     table.PrimaryKey("pk_cd_subject_subject_id", x => x.subject_id);
                     table.ForeignKey(
-                        name: "FK_cd_subject_cd_student_StudentId",
+                        name: "fk_f_student_id",
                         column: x => x.StudentId,
                         principalTable: "cd_student",
                         principalColumn: "student_id",
@@ -110,7 +110,7 @@ namespace Zotikov_Leonid_KT_31_21.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_cd_grade_StudentId",
+                name: "idx_cd_grade_fk_f_group_id",
                 table: "cd_grade",
                 column: "StudentId");
 
@@ -120,7 +120,7 @@ namespace Zotikov_Leonid_KT_31_21.Migrations
                 column: "f_group_id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_cd_subject_StudentId",
+                name: "idx_cd_subject_fk_f_group_id",
                 table: "cd_subject",
                 column: "StudentId");
 

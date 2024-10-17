@@ -40,12 +40,17 @@ namespace Zotikov_Leonid_KT_31_21.Database.Configurations
                 .HasComment("Баллы");
 
             //связь со студентами
-            builder.ToTable(TableName)
-            .HasOne(p => p.Student)
+            builder.HasOne(p => p.Student)
             .WithMany()
             .HasForeignKey(p => p.StudentId)
             .HasConstraintName("fk_f_student_id")
             .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasIndex(p => p.StudentId, $"idx_{TableName}_fk_f_group_id");
+
+            //Добавим явную автоподгрузку связанной сущности
+            builder.Navigation(p => p.Student)
+                .AutoInclude();
 
             builder.ToTable(TableName);
 

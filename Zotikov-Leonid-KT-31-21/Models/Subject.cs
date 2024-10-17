@@ -1,4 +1,5 @@
-﻿namespace Zotikov_Leonid_KT_31_21.Models
+﻿
+namespace Zotikov_Leonid_KT_31_21.Models
 {
     public class Subject
     {
